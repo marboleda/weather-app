@@ -4,7 +4,6 @@ const results = () => {
 
     return (
         <div className="results">
-
         </div>
     );
 }

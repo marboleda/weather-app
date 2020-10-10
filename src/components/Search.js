@@ -4,6 +4,8 @@ const search = () => {
 
     return (
         <div className="search">
+            <input type="text" id="searchInput" />
+            <button id="searchButton">Search</button>
         </div>
     );
 }

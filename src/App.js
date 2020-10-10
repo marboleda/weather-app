@@ -1,5 +1,6 @@
 import React from 'react';
-import Header from './components/Header'
+import Header from './components/Header';
+import Search from './components/Search';
 import './App.css';
 
 const App = () =>  {
@@ -7,6 +8,7 @@ const App = () =>  {
   return (
     <div className="App">
       <Header />
+      <Search />
     </div>
   );
 }
