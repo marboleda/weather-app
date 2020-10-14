@@ -2,7 +2,7 @@ import React from 'react';
 
 const search = (props) => {
 
-    const { weatherObj } = props;
+    const { update } = props;
 
     const handleSearch = () => {
         const cityName = document.getElementById('searchInput').value;
@@ -11,11 +11,18 @@ const search = (props) => {
             .then((response) => {
                 return response.json();
             }).then((data) => {
+                console.log(data);
+                const weatherObj = {};
                 weatherObj.temp = data.main.temp;
                 weatherObj.unit = 'C';
                 weatherObj.feelsLike = data.main.feels_like;
                 weatherObj.description = data.weather[0].main;
-            })
+                weatherObj.cityName = data.name;
+                console.log(weatherObj);
+                update(weatherObj);
+            });
+
+
     }
 
     return (

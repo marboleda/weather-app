@@ -11,7 +11,7 @@ const App = () =>  {
   return (
     <div className="App">
       <Header />
-      <Search weatherObj={weatherObj} />
+      <Search update={setWeatherObj} />
       <Results weatherObj={weatherObj} />
     </div>
   );
