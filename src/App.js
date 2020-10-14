@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './components/Header';
 import Search from './components/Search';
 import './App.css';
 
 const App = () =>  {
 
+  const [weatherObj, setWeatherObj] = useState({});
+
   return (
     <div className="App">
       <Header />
-      <Search />
+      <Search weatherObj={weatherObj} />
+      <Results weatherObj={weatherObj} />
     </div>
   );
 }

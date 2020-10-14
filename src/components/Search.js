@@ -1,6 +1,8 @@
 import React from 'react';
 
-const search = () => {
+const search = (props) => {
+
+    const { weatherObj } = props;
 
     const handleSearch = () => {
         const cityName = document.getElementById('searchInput').value;

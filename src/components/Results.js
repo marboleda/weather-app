@@ -1,6 +1,8 @@
 import React from 'react';
 
-const results = () => {
+const results = (props) => {
+
+    const { weatherObj } = props;
 
     return (
         <div className="results">
