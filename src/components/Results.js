@@ -2,7 +2,7 @@ import React from 'react';
 
 const results = (props) => {
 
-    const { weatherObj } = props;
+    const { changeUnit, weatherObj } = props;
     //Check if weather object is empty and render conditionally based on that
     //May be more useful to use styling instead to accomplish this?
     const isWeatherObjEmpty = Object.keys(weatherObj).length === 0 && weatherObj.constructor === Object;
@@ -16,6 +16,11 @@ const results = (props) => {
             </div>
             { isWeatherObjEmpty ? null : <p>Feels like: <span>{weatherObj.feelsLike}</span></p> }
             <span>{weatherObj.description}</span>
+            <br />
+            <input type="radio" id="celsius" name="unit" value="C" defaultChecked onClick={(e) => changeUnit(e.target.value)}/>
+            <label htmlFor="celsius">Celsius</label>
+            <input type="radio" id="fahrenheit" name="unit" value="F" onClick={(e) => changeUnit(e.target.value)}/>
+            <label htmlFor="fahrenheit">Fahrenheit</label>
         </div>
     );
 }
