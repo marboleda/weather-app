@@ -1,20 +1,29 @@
 import React from 'react';
+import styled from 'styled-components';
+
+
 
 const results = (props) => {
 
     const { changeUnit, weatherObj } = props;
     //Check if weather object is empty and render conditionally based on that
-    //May be more useful to use styling instead to accomplish this?
     const isWeatherObjEmpty = Object.keys(weatherObj).length === 0 && weatherObj.constructor === Object;
 
+    const Unit = styled.span`
+        display: ${isWeatherObjEmpty ? "none" : "inline"};
+    `
+
+    const FeelsLikeSection = styled.p`
+        display: ${isWeatherObjEmpty ? "none" : "block"};
+    `
 
     return (
         <div className="results">
             <h2>{weatherObj.cityName}</h2>
             <div>
-                <span>{weatherObj.temp}</span> { isWeatherObjEmpty ? null : <span>{'\u00B0'}{weatherObj.unit}</span> }
+                <span>{weatherObj.temp}</span> <Unit>{'\u00B0'}{weatherObj.unit}</Unit>
             </div>
-            { isWeatherObjEmpty ? null : <p>Feels like: <span>{weatherObj.feelsLike}</span></p> }
+            <FeelsLikeSection>Feels like: <span>{weatherObj.feelsLike}</span></FeelsLikeSection>
             <span>{weatherObj.description}</span>
             <br />
             <input type="radio" id="celsius" name="unit" value="C" defaultChecked onClick={(e) => changeUnit(e.target.value)}/>
