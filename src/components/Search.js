@@ -1,5 +1,15 @@
 import React from 'react';
+import styled from 'styled-components';
 
+const SearchContainer = styled.div`
+    background-color: #2c3142;
+    padding-bottom: 1vh;
+`
+const SearchButton = styled.button`
+    background-color: rgb(49, 49, 49);
+    color: #cccc00;
+    margin-left: 1vw;
+`;
 const search = (props) => {
 
     const { update, apiKey } = props;
@@ -28,10 +38,10 @@ const search = (props) => {
     }
 
     return (
-        <div className="search">
+        <SearchContainer>
             <input type="text" id="searchInput" placeholder="Enter City Here" />
-            <button id="searchButton" onClick={handleSearch}>Search</button>
-        </div>
+            <SearchButton id="searchButton" onClick={handleSearch}>Search</SearchButton>
+        </SearchContainer>
     );
 }
 

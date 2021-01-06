@@ -6,8 +6,8 @@ const Container = styled.div`
     margin-top: 0;
 `;
 
-const Header =styled.h1`
-    color: #CCCC00;
+const Header = styled.h1`
+    color: #cccc00;
     margin: 0;
     padding-top: 1vh;
     padding-bottom: 1vh;
