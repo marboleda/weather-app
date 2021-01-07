@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
 const SearchContainer = styled.div`
@@ -10,9 +10,15 @@ const SearchButton = styled.button`
     color: #cccc00;
     margin-left: 1vw;
 `;
-const search = (props) => {
+const Search = (props) => {
 
     const { update, apiKey } = props;
+
+    const searchBarRef = useRef(null);
+
+    useEffect(() => {
+        searchBarRef.current.focus();
+    });
 
     const handleSearch = () => {
         const cityName = document.getElementById('searchInput').value;
@@ -37,12 +43,27 @@ const search = (props) => {
 
     }
 
+    const handleEnterKey = (e) => {
+        console.log(e.keyCode);
+        if (e.key === 'Enter') {
+          handleSearch();
+        }
+      }
+
     return (
         <SearchContainer>
-            <input type="text" id="searchInput" placeholder="Enter City Here" />
-            <SearchButton id="searchButton" onClick={handleSearch}>Search</SearchButton>
+            <input type="text" 
+                   id="searchInput" 
+                   ref={searchBarRef}
+                   onKeyDown={handleEnterKey}
+                   placeholder="Enter City Here" />
+            <SearchButton 
+                id="searchButton"
+                onClick={handleSearch}>
+                Search
+            </SearchButton>
         </SearchContainer>
     );
 }
 
-export default search;
+export default Search;

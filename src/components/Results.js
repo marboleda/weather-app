@@ -16,7 +16,8 @@ const results = (props) => {
     `
 
     const UnitSelection = styled.div`
-        display: ${isWeatherObjEmpty ? "none" : "block"}
+        display: ${isWeatherObjEmpty ? "none" : "block"};
+        margin-top: 2vh;
     `
 
     return (
