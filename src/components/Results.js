@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
-
 const results = (props) => {
 
     const { changeUnit, weatherObj } = props;
@@ -17,6 +15,10 @@ const results = (props) => {
         display: ${isWeatherObjEmpty ? "none" : "block"};
     `
 
+    const UnitSelection = styled.div`
+        display: ${isWeatherObjEmpty ? "none" : "block"}
+    `
+
     return (
         <div className="results">
             <h2>{weatherObj.cityName}</h2>
@@ -26,10 +28,12 @@ const results = (props) => {
             <FeelsLikeSection>Feels like: <span>{weatherObj.feelsLike}</span></FeelsLikeSection>
             <span>{weatherObj.description}</span>
             <br />
-            <input type="radio" id="celsius" name="unit" value="C" defaultChecked onClick={(e) => changeUnit(e.target.value)}/>
-            <label htmlFor="celsius">Celsius</label>
-            <input type="radio" id="fahrenheit" name="unit" value="F" onClick={(e) => changeUnit(e.target.value)}/>
-            <label htmlFor="fahrenheit">Fahrenheit</label>
+            <UnitSelection>
+                <input type="radio" id="celsius" name="unit" value="C" defaultChecked onClick={(e) => changeUnit(e.target.value)}/>
+                <label htmlFor="celsius">Celsius</label>
+                <input type="radio" id="fahrenheit" name="unit" value="F" onClick={(e) => changeUnit(e.target.value)}/>
+                <label htmlFor="fahrenheit">Fahrenheit</label>
+            </UnitSelection>
         </div>
     );
 }
