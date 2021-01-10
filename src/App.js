@@ -4,7 +4,7 @@ import Search from './components/Search';
 import Results from './components/Results';
 import styled from 'styled-components';
 
-const App = styled.div`
+const AppDiv = styled.div`
 display: flex;
 flex-direction: column;
 height: 100vh;
@@ -40,11 +40,11 @@ const App = () =>  {
   }
 
   return (
-    <App>
+    <AppDiv>
       <Header />
       <Search update={setWeatherObj} apiKey={API_KEY}/>
       <Results changeUnit={handleUnitChange} unit={unitSelected} weatherObj={weatherObj} />
-    </App>
+    </AppDiv>
   );
 }
 
