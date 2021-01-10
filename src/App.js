@@ -7,6 +7,7 @@ import './App.css';
 const App = () =>  {
 
   const [weatherObj, setWeatherObj] = useState({});
+  const [unitSelected, setUnitSelected] = useState('C');
   const API_KEY = 'a7be9f905cd3da9bb04819dd3df2b03e';
 
   const handleUnitChange = async (unitCode) => {
@@ -24,13 +25,19 @@ const App = () =>  {
       newWeatherObj.feelsLike = weatherData.main.feels_like;
       setWeatherObj(newWeatherObj);
     }
+
+    if (unitCode === 'C') {
+      setUnitSelected('C');
+    } else {
+      setUnitSelected('F');
+    }
   }
 
   return (
     <div className="App">
       <Header />
       <Search update={setWeatherObj} apiKey={API_KEY}/>
-      <Results changeUnit={handleUnitChange} weatherObj={weatherObj} />
+      <Results changeUnit={handleUnitChange} unit={unitSelected} weatherObj={weatherObj} />
     </div>
   );
 }

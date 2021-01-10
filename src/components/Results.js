@@ -3,7 +3,8 @@ import styled from 'styled-components';
 
 const results = (props) => {
 
-    const { changeUnit, weatherObj } = props;
+    const { changeUnit, unit, weatherObj } = props;
+
     //Check if weather object is empty and render conditionally based on that
     const isWeatherObjEmpty = Object.keys(weatherObj).length === 0 && weatherObj.constructor === Object;
 
@@ -16,8 +17,7 @@ const results = (props) => {
     `
 
     const UnitSelection = styled.div`
-        display: ${isWeatherObjEmpty ? "none" : "block"};
-        margin-top: 2vh;
+        display: ${isWeatherObjEmpty ? "none" : "block"}
     `
 
     return (
@@ -30,9 +30,19 @@ const results = (props) => {
             <span>{weatherObj.description}</span>
             <br />
             <UnitSelection>
-                <input type="radio" id="celsius" name="unit" value="C" defaultChecked onClick={(e) => changeUnit(e.target.value)}/>
+                <input type="radio" 
+                       id="celsius" 
+                       name="unit" 
+                       value="C" 
+                       checked={unit === 'C'}
+                       onClick={(e) => changeUnit(e.target.value)}/>
                 <label htmlFor="celsius">Celsius</label>
-                <input type="radio" id="fahrenheit" name="unit" value="F" onClick={(e) => changeUnit(e.target.value)}/>
+                <input type="radio" 
+                       id="fahrenheit" 
+                       name="unit" 
+                       value="F"
+                       checked={unit === 'F'} 
+                       onClick={(e) => changeUnit(e.target.value)}/>
                 <label htmlFor="fahrenheit">Fahrenheit</label>
             </UnitSelection>
         </div>
