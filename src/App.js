@@ -4,13 +4,13 @@ import Search from './components/Search';
 import Results from './components/Results';
 import styled from 'styled-components';
 
-const App = () =>  {
+const App = styled.div`
+display: flex;
+flex-direction: column;
+height: 100vh;
+`;
 
-  const App = styled.div`
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-  `;
+const App = () =>  {
 
   const [weatherObj, setWeatherObj] = useState({});
   const [unitSelected, setUnitSelected] = useState('C');
