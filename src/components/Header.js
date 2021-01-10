@@ -4,6 +4,7 @@ import styled from 'styled-components';
 const Container = styled.div`
     background-color: #2c3142;
     margin-top: 0;
+    text-align: center;
 `;
 
 const Header = styled.h1`

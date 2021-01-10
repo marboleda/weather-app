@@ -8,6 +8,17 @@ const results = (props) => {
     //Check if weather object is empty and render conditionally based on that
     const isWeatherObjEmpty = Object.keys(weatherObj).length === 0 && weatherObj.constructor === Object;
 
+    const Results = styled.div`
+        padding-top: 2vh;
+        background-color: #545b72;
+        flex-grow: 1;
+        text-align: center;
+    `
+
+    const City = styled.h2`
+        margin-top: 0px;
+    `
+
     const Unit = styled.span`
         display: ${isWeatherObjEmpty ? "none" : "inline"};
     `
@@ -17,12 +28,13 @@ const results = (props) => {
     `
 
     const UnitSelection = styled.div`
-        display: ${isWeatherObjEmpty ? "none" : "block"}
+        display: ${isWeatherObjEmpty ? "none" : "block"};
+        margin-top: 2vh;
     `
 
     return (
-        <div className="results">
-            <h2>{weatherObj.cityName}</h2>
+        <Results>
+            <City>{weatherObj.cityName}</City>
             <div>
                 <span>{weatherObj.temp}</span> <Unit>{'\u00B0'}{weatherObj.unit}</Unit>
             </div>
@@ -45,7 +57,7 @@ const results = (props) => {
                        onClick={(e) => changeUnit(e.target.value)}/>
                 <label htmlFor="fahrenheit">Fahrenheit</label>
             </UnitSelection>
-        </div>
+        </Results>
     );
 }
 

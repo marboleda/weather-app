@@ -2,9 +2,15 @@ import React, { useState } from 'react';
 import Header from './components/Header';
 import Search from './components/Search';
 import Results from './components/Results';
-import './App.css';
+import styled from 'styled-components';
 
 const App = () =>  {
+
+  const App = styled.div`
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  `;
 
   const [weatherObj, setWeatherObj] = useState({});
   const [unitSelected, setUnitSelected] = useState('C');
@@ -34,11 +40,11 @@ const App = () =>  {
   }
 
   return (
-    <div className="App">
+    <App>
       <Header />
       <Search update={setWeatherObj} apiKey={API_KEY}/>
       <Results changeUnit={handleUnitChange} unit={unitSelected} weatherObj={weatherObj} />
-    </div>
+    </App>
   );
 }
 

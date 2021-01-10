@@ -4,6 +4,7 @@ import styled from 'styled-components';
 const SearchContainer = styled.div`
     background-color: #2c3142;
     padding-bottom: 1vh;
+    text-align: center;
 `
 const SearchButton = styled.button`
     background-color: rgb(49, 49, 49);
@@ -44,7 +45,6 @@ const Search = (props) => {
     }
 
     const handleEnterKey = (e) => {
-        console.log(e.keyCode);
         if (e.key === 'Enter') {
           handleSearch();
         }
