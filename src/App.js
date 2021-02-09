@@ -14,7 +14,7 @@ const App = () =>  {
 
   const [weatherObj, setWeatherObj] = useState({});
   const [unitSelected, setUnitSelected] = useState('C');
-  const API_KEY = 'a7be9f905cd3da9bb04819dd3df2b03e';
+  const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
   const handleUnitChange = async (unitCode) => {
     // Don't do anything if weather object is empty
