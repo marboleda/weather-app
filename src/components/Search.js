@@ -36,9 +36,6 @@ const Search = (props) => {
                 weatherObj.description = data.weather[0].main;
                 weatherObj.cityName = data.name;
                 update(weatherObj);
-
-                console.log(data);
-                console.log(weatherObj);
             });
 
 

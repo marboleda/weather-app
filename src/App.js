@@ -24,7 +24,6 @@ const App = () =>  {
       const unitType = unitCode === 'F' ? 'imperial' : 'metric';
       const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${weatherObj.cityName}&units=${unitType}&appid=${API_KEY}`)
       const weatherData = await response.json();
-      console.log(weatherData);
       const newWeatherObj = {...weatherObj};
       newWeatherObj.unit = unitCode;
       newWeatherObj.temp = weatherData.main.temp;
